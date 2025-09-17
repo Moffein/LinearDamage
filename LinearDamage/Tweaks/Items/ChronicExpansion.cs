@@ -43,9 +43,9 @@ namespace LinearDamage.Tweaks.Items
         private void RemoveVanilla(MonoMod.Cil.ILContext il)
         {
             ILCursor c = new ILCursor(il);
-            if (c.TryGotoNext(MoveType.After, x => x.MatchLdsfld(typeof(DLC2Content.Buffs), "IncreaseDamageBuff"), x => x.MatchCall<CharacterBody>("GetBuffCount")))
+            if (c.TryGotoNext(MoveType.After, x => x.MatchLdsfld(typeof(DLC2Content.Buffs), "IncreaseDamageBuff"), x => x.MatchCall<CharacterBody>("HasBuff")))
             {
-                c.EmitDelegate<Func<int, int>>(i => 0);
+                c.EmitDelegate<Func<bool, bool>>(i => false);
             }
             else
             {
