@@ -8,7 +8,8 @@ using System.Reflection;
 
 namespace LinearDamage
 {
-    [BepInPlugin("com.RiskyLives.LinearDamage", "LinearDamage", "1.0.2")]
+    [BepInDependency("com.RiskyLives.SneedHooks")]
+    [BepInPlugin("com.RiskyLives.LinearDamage", "LinearDamage", "1.0.3")]
     [NetworkCompatibility(CompatibilityLevel.NoNeedForSync, VersionStrictness.DifferentModVersionsAreOk)]
     public class LinearDamagePlugin : BaseUnityPlugin
     {

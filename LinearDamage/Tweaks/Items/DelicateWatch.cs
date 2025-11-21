@@ -36,7 +36,7 @@ namespace LinearDamage.Tweaks.Items
         private void RemoveVanilla(MonoMod.Cil.ILContext il)
         {
             ILCursor c = new ILCursor(il);
-            if (c.TryGotoNext(MoveType.After, x => x.MatchLdsfld(typeof(DLC1Content.Items), "FragileDamageBonus"), x => x.MatchCallvirt<Inventory>("GetItemCount")))
+            if (c.TryGotoNext(MoveType.After, x => x.MatchLdsfld(typeof(DLC1Content.Items), "FragileDamageBonus"), x => x.MatchCallvirt<Inventory>("GetItemCountEffective")))
             {
                 c.EmitDelegate<Func<int, int>>(i => 0);
             }
